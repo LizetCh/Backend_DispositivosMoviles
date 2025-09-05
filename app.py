@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from config.db import init_db, mysql
 from routes.tareas import tareas_bp
+from routes.usuarios import usuarios_bp
 
 # cargar variables de entorno
 load_dotenv()
@@ -16,6 +17,7 @@ def create_app():  # funcion para crear la app
 
     # registrar el blueprint
     app.register_blueprint(tareas_bp, url_prefix='/tareas')
+    app.register_blueprint(usuarios_bp, url_prefix='/usuarios')
     return app
 
 
